@@ -1,35 +1,40 @@
 /* =====================================================================
-   CONFIGURAÇÃO DO SITE
-   Aqui ficam os dados que mudam de cliente para cliente.
+   CONFIGURAÇÃO DO SITE · SUÉLLEN MALTA DESIGNER DE INTERIORES
+   Aqui ficam os dados que mudam com frequência.
    Troque os textos entre aspas, salve e atualize a página.
    ===================================================================== */
 
 window.SITE = {
 
-  /* Nome que aparece no topo, no rodapé e na aba do navegador.
-     "Estúdio Alma" é só um nome de exemplo para a proposta. */
-  nome: "Estúdio Alma",
-  assinatura: "Design de Interiores",
+  nome: "Suéllen Malta",
+  assinatura: "Designer de Interiores",
 
   /* WhatsApp com 55 + DDD + número, só números. Ex.: "5521999998888".
      O formulário de contato monta a mensagem e abre o WhatsApp com ela. */
   whatsapp: "",
-  email: "contato@seudominio.com.br",
-  instagram: "https://www.instagram.com/",
-  arroba: "@seuperfil",
+  email: "contato@suellenmalta.com.br",
+  instagram: "https://www.instagram.com/suellenmalta.designer/",
+  arroba: "@suellenmalta.designer",
   cidade: "Rio de Janeiro · RJ",
 
+  /* Foto da Suéllen para a seção "Sobre". Enquanto não existir, aparece um arco bege. */
+  fotoPerfil: "img/suellen.jpg",
+
   /* Portfólio.
-     categoria: precisa ser igual a um dos botões de filtro (sala, quarto, cozinha, comercial).
-     foto: caminho da imagem dentro da pasta img/projetos/. Se ainda não existir,
-           o site mostra uma amostra de material no lugar.
-     tom: cor da amostra enquanto a foto não chega. */
+     categoria: igual a um dos botões de filtro (residencial, cozinha, quarto, comercial, marcenaria).
+     foto: caminho da imagem dentro de img/projetos/. Sem foto, aparece uma amostra de cor.
+     tom: cor da amostra enquanto a foto não chega (areia, azul, oliva, mostarda, caramelo). */
   projetos: [
-    { titulo: "Sala integrada",       local: "Projeto exemplo", categoria: "sala",      foto: "img/projetos/sala-integrada.jpg",  tom: "linho" },
-    { titulo: "Suíte do casal",       local: "Projeto exemplo", categoria: "quarto",    foto: "img/projetos/suite-casal.jpg",     tom: "oliva" },
-    { titulo: "Cozinha gourmet",      local: "Projeto exemplo", categoria: "cozinha",   foto: "img/projetos/cozinha-gourmet.jpg", tom: "carvalho" },
-    { titulo: "Consultório",          local: "Projeto exemplo", categoria: "comercial", foto: "img/projetos/consultorio.jpg",     tom: "argila" },
-    { titulo: "Home office",          local: "Projeto exemplo", categoria: "sala",      foto: "img/projetos/home-office.jpg",     tom: "grafite" },
-    { titulo: "Quarto infantil",      local: "Projeto exemplo", categoria: "quarto",    foto: "img/projetos/quarto-infantil.jpg", tom: "linho" }
-  ]
+    { titulo: "Sala integrada",   tipo: "Residencial", categoria: "residencial", foto: "img/projetos/sala-integrada.jpg",  tom: "areia" },
+    { titulo: "Cozinha gourmet",  tipo: "Cozinha",     categoria: "cozinha",     foto: "img/projetos/cozinha-gourmet.jpg", tom: "oliva" },
+    { titulo: "Suíte do casal",   tipo: "Quarto",      categoria: "quarto",      foto: "img/projetos/suite-casal.jpg",     tom: "azul" },
+    { titulo: "Painel de TV",     tipo: "Marcenaria",  categoria: "marcenaria",  foto: "img/projetos/painel-tv.jpg",       tom: "caramelo" },
+    { titulo: "Consultório",      tipo: "Comercial",   categoria: "comercial",   foto: "img/projetos/consultorio.jpg",     tom: "mostarda" },
+    { titulo: "Sala de jantar",   tipo: "Residencial", categoria: "residencial", foto: "img/projetos/sala-jantar.jpg",     tom: "areia" }
+  ],
+
+  /* Depoimentos de clientes REAIS. Enquanto a lista estiver vazia, a seção não aparece.
+     Exemplo de como preencher:
+     { texto: "O que a cliente escreveu...", nome: "Nome da cliente", projeto: "Apartamento em Botafogo" } */
+  depoimentos: []
 };

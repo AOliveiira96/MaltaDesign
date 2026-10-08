@@ -1,116 +1,114 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <!-- HEAD: informações para o navegador e para o Google. Nada aqui aparece na tela. -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Estúdio Alma · Design de Interiores</title>
-  <meta name="description" content="Projetos de interiores residenciais e comerciais no Rio de Janeiro. Do briefing ao acompanhamento da obra.">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 
-  <!-- Fontes do Google Fonts: Marcellus (títulos) e Karla (textos) -->
+  <title>Suéllen Malta</title>
+  <meta name="description" content="Interiores que acolhem, soluções que transformam. Projetos de interiores, consultoria, marcenaria e curadoria de produtos no Rio de Janeiro.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Marcellus&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+
 
 <!-- ================= CABEÇALHO ================= -->
 <header class="cabecalho">
   <div class="conteudo">
-    <a class="marca" href="#inicio"><b data-nome>Estúdio Alma</b><span data-assinatura>Design de Interiores</span></a>
+    <a class="marca" href="#inicio" aria-label="Suéllen Malta, início">
+      <img src="img/marca/logo-azul.png" alt="Suéllen Malta Designer de Interiores" width="842" height="732">
+    </a>
 
-    <!-- Botão que só aparece no celular para abrir o menu -->
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
     </button>
 
     <nav class="menu" id="menu" aria-label="Menu principal">
       <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
-      <a href="#processo">Como trabalho</a>
-      <a href="#portfolio">Portfólio</a>
-      <a class="btn btn-cheio" href="#contato">Orçamento</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-azul" href="#contato">Solicitar orçamento</a>
     </nav>
   </div>
 </header>
 
 <main id="inicio">
 
-  <!-- ================= CAPA ================= -->
+  <!-- ================= HOME (CAPA) ================= -->
   <section class="capa">
     <div class="conteudo">
       <div class="capa-texto">
-        <div class="rotulo">Interiores residenciais e comerciais</div>
-        <h1>Ambientes pensados para a <em>forma como você vive</em></h1>
-        <p class="lead">Projetos de interiores que unem função, conforto e personalidade, do primeiro esboço à última almofada no lugar.</p>
+        <p class="pilares">Estética · Funcionalidade · Personalidade · Bem-estar</p>
+        <h1>Ambientes para viver, sentir e <em>chamar de seu.</em></h1>
+        <p class="lead">Projetos de interiores personalizados para quem busca funcionalidade, estética e acolhimento.</p>
         <div class="acoes">
-          <a class="btn btn-cheio" href="#portfolio">Ver projetos <span class="seta" aria-hidden="true">→</span></a>
-          <a class="btn btn-linha" href="#contato">Pedir orçamento</a>
+          <a class="btn btn-azul" href="#projetos">Conheça meu trabalho <span class="seta" aria-hidden="true">→</span></a>
+          <a class="btn btn-linha" href="#contato">Solicitar orçamento</a>
         </div>
-        <ul class="amostras" aria-label="Paleta de materiais">
-          <li><i style="background:var(--mat-linho)"></i>Linho</li>
-          <li><i style="background:var(--mat-carvalho)"></i>Carvalho</li>
-          <li><i style="background:var(--mat-oliva)"></i>Oliva</li>
-          <li><i style="background:var(--mat-argila)"></i>Argila</li>
-        </ul>
       </div>
 
-      <!-- Planta baixa ilustrativa, desenhada com SVG (código, não é imagem) -->
-      <div class="planta" aria-hidden="true">
-        <svg viewBox="0 0 520 420">
-          <!-- áreas coloridas dos cômodos -->
-          <rect class="area" x="40" y="40" width="270" height="200"/>
-          <rect class="area-2" x="310" y="40" width="170" height="140"/>
-          <rect class="area-3" x="40" y="240" width="170" height="140"/>
-          <!-- paredes externas e divisões -->
-          <rect class="parede desenho" x="40" y="40" width="440" height="340"/>
-          <path class="divisao desenho" d="M310 40V140M310 180V240H260M210 240H40M210 240V380M310 240V260M310 300V380M380 180H480"/>
-          <!-- portas (arco tracejado) -->
-          <path class="porta" d="M310 140A40 40 0 0 1 350 180M210 240A50 50 0 0 1 260 290"/>
-          <!-- móveis da sala -->
-          <rect class="movel" x="70" y="160" width="140" height="44" rx="6"/>
-          <rect class="movel" x="100" y="90" width="80" height="44" rx="4"/>
-          <circle class="movel" cx="250" cy="110" r="20"/>
-          <!-- cama do quarto -->
-          <rect class="movel" x="340" y="70" width="110" height="80" rx="4"/>
-          <rect class="movel" x="350" y="74" width="40" height="18" rx="3"/>
-          <rect class="movel" x="400" y="74" width="40" height="18" rx="3"/>
-          <!-- bancada da cozinha -->
-          <rect class="movel" x="50" y="250" width="150" height="26"/>
-          <rect class="movel" x="80" y="310" width="90" height="40" rx="4"/>
-          <!-- nomes dos cômodos -->
-          <text x="64" y="66">SALA DE ESTAR</text>
-          <text x="334" y="170">SUÍTE</text>
-          <text x="64" y="370">COZINHA</text>
-          <text x="334" y="330">BANHO</text>
-          <!-- cotas (linhas de medida) -->
-          <path class="cota" d="M40 18H480M40 12V24M480 12V24"/>
-          <text class="medida" x="236" y="12">8,80 m</text>
-          <path class="cota" d="M502 40V380M496 40H508M496 380H508"/>
-          <text class="medida" x="508" y="214" transform="rotate(90 508 214)">6,80 m</text>
+      <!-- Composição de arcos: o elemento gráfico da marca, feito só com CSS -->
+      <div class="arcos" aria-hidden="true">
+        <span class="arco arco-areia"></span>
+        <span class="arco arco-madeira"></span>
+        <span class="arco arco-oliva"></span>
+        <span class="arco arco-linha"></span>
+        <svg class="folha" viewBox="0 0 60 160" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M30 158C30 110 32 60 44 6"/>
+          <path d="M31 120C18 112 10 98 12 84c12 6 18 20 19 36Z"/>
+          <path d="M33 90c13-7 21-20 20-34-12 5-19 18-20 34Z"/>
+          <path d="M36 58C25 50 20 38 22 26c10 6 14 18 14 32Z"/>
         </svg>
       </div>
     </div>
   </section>
 
+  <!-- Faixa com as frases da marca -->
+  <div class="faixa-frases" aria-label="Frases da marca">
+    <div class="conteudo">
+      <span>Projetar é transformar espaços em histórias</span>
+      <span>Cada detalhe tem um propósito</span>
+      <span>Sua casa, seu ritmo, seu estilo</span>
+    </div>
+  </div>
+
   <!-- ================= SOBRE ================= -->
   <section class="secao sobre" id="sobre">
     <div class="conteudo">
-      <div>
-        <div class="rotulo">Sobre</div>
-        <h2 class="titulo">Prazer, eu cuido do seu espaço</h2>
+      <figure class="retrato">
+        <div class="retrato-foto" data-foto-perfil><span>Foto da Suéllen</span></div>
+      </figure>
+      <div class="sobre-texto">
+        <p class="rotulo">Sobre</p>
+        <h2 class="titulo">Olá, eu sou <em>Suéllen Malta</em></h2>
+        <p class="destaque">Acredito que cada ambiente pode transformar a forma como você vive, se sente e se relaciona com o seu espaço.</p>
+        <p>Meu trabalho começa ouvindo: sua rotina, seus desejos e o que você quer sentir ao chegar em casa. A partir disso, crio projetos que unem beleza, funcionalidade e a sua história.</p>
+        <ul class="valores">
+          <li><b>Acolhimento</b>Ambientes que abraçam a rotina</li>
+          <li><b>Personalidade</b>Projetos com a sua cara</li>
+          <li><b>Confiança</b>Acompanhamento do início à entrega</li>
+        </ul>
       </div>
-      <div class="texto">
-        <p>Acredito que uma casa bem projetada muda a rotina de quem mora nela.</p>
-        <p>Cada projeto começa ouvindo: como você usa os ambientes, o que te incomoda hoje e o que você quer sentir ao chegar em casa. A partir disso, desenvolvo layouts, escolho materiais e acompanho a execução para que o resultado saia como planejado.</p>
-        <p>Atendo projetos residenciais e comerciais, presencialmente no Rio de Janeiro e on-line para outras cidades.</p>
-        <div class="numeros">
-          <div><b>Residencial</b><span>Apartamentos e casas</span></div>
-          <div><b>Comercial</b><span>Lojas e consultórios</span></div>
-          <div><b>On-line</b><span>Consultoria a distância</span></div>
+    </div>
+  </section>
+
+  <!-- ================= PROJETOS ================= -->
+  <section class="secao projetos" id="projetos">
+    <div class="conteudo">
+      <div class="cabeca-secao">
+        <div>
+          <p class="rotulo">Projetos</p>
+          <h2 class="titulo">Projetos que unem beleza, funcionalidade e <em>histórias reais</em></h2>
+        </div>
+        <!-- data-filtro precisa ser igual à "categoria" de cada projeto no config.js -->
+        <div class="filtros" role="group" aria-label="Filtrar projetos por categoria">
+          <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+          <button type="button" data-filtro="residencial" aria-pressed="false">Residencial</button>
+          <button type="button" data-filtro="cozinha" aria-pressed="false">Cozinhas</button>
+          <button type="button" data-filtro="quarto" aria-pressed="false">Quartos</button>
+          <button type="button" data-filtro="marcenaria" aria-pressed="false">Marcenaria</button>
+          <button type="button" data-filtro="comercial" aria-pressed="false">Comercial</button>
         </div>
       </div>
+      <div class="grade" data-grade></div>
     </div>
   </section>
 
@@ -118,24 +116,32 @@
   <section class="secao" id="servicos">
     <div class="conteudo">
       <div class="cabeca-secao">
-        <div><div class="rotulo">Serviços</div><h2 class="titulo">Como posso ajudar</h2></div>
-        <p>Três formatos para atender desde quem quer só uma orientação até quem vai reformar tudo.</p>
+        <div>
+          <p class="rotulo">Serviços</p>
+          <h2 class="titulo">Soluções criativas para a <em>vida real</em></h2>
+        </div>
+        <p class="apoio">Do projeto completo a uma orientação pontual, cada serviço é pensado para a sua necessidade.</p>
       </div>
       <div class="servicos">
         <article class="servico">
-          <h3>Projeto completo</h3>
-          <p>Para reformas e imóveis novos, com todos os detalhes para a obra.</p>
-          <ul><li>Layout e planta humanizada</li><li>Imagens 3D dos ambientes</li><li>Detalhamento de marcenaria</li><li>Lista de compras</li></ul>
+          <span class="icone ic-azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
+          <h3>Projeto de interiores</h3>
+          <p>Layout, imagens 3D, detalhamento técnico e lista de compras para reformar ou montar do zero.</p>
         </article>
         <article class="servico">
+          <span class="icone ic-caramelo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg></span>
           <h3>Consultoria</h3>
-          <p>Para quem quer renovar sem obra, aproveitando o que já tem.</p>
-          <ul><li>Visita ou chamada de vídeo</li><li>Sugestões de layout</li><li>Paleta de cores e materiais</li><li>Indicação de peças</li></ul>
+          <p>Atendimento personalizado, presencial ou on-line, para renovar o espaço aproveitando o que você já tem.</p>
         </article>
         <article class="servico">
-          <h3>Acompanhamento</h3>
-          <p>Para garantir que o projeto saia do papel do jeito certo.</p>
-          <ul><li>Visitas à obra</li><li>Contato com fornecedores</li><li>Conferência de entregas</li><li>Produção final</li></ul>
+          <span class="icone ic-mostarda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4"/><path d="M3 12h18v5H3z"/><path d="M5 17v2M19 17v2"/></svg></span>
+          <h3>Marcenaria</h3>
+          <p>Móveis planejados e painéis desenhados sob medida, com detalhamento para o marceneiro executar.</p>
+        </article>
+        <article class="servico">
+          <span class="icone ic-oliva"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1 13H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+          <h3>Produtos</h3>
+          <p>Curadoria de mobiliário, iluminação e decoração para completar o ambiente com intenção.</p>
         </article>
       </div>
     </div>
@@ -145,35 +151,37 @@
   <section class="secao processo" id="processo">
     <div class="conteudo">
       <div class="cabeca-secao">
-        <div><div class="rotulo">Como trabalho</div><h2 class="titulo">Do briefing à entrega</h2></div>
-        <p>Cada etapa é aprovada com você antes de seguir para a próxima.</p>
+        <div>
+          <p class="rotulo">Processo</p>
+          <h2 class="titulo">Do primeiro contato à <em>entrega</em></h2>
+        </div>
+        <p class="apoio">Cada etapa é aprovada com você antes de seguir para a próxima.</p>
       </div>
-      <!-- <ol> é uma lista numerada: a ordem aqui é real, por isso os números -->
+      <!-- <ol> = lista numerada. A ordem das etapas é real, por isso os números. -->
       <ol class="etapas">
-        <li><h3>Briefing</h3><p>Conversa para entender sua rotina, seu gosto e o orçamento disponível.</p></li>
-        <li><h3>Conceito</h3><p>Estudo de layout, referências e paleta para definirmos a direção juntos.</p></li>
-        <li><h3>Projeto</h3><p>Imagens 3D, desenhos técnicos e lista de compras com tudo especificado.</p></li>
-        <li><h3>Execução</h3><p>Acompanhamento da obra e da montagem até o ambiente ficar pronto.</p></li>
+        <li><h3>Conversa</h3><p>Entendo sua rotina, seus desejos, suas necessidades e o investimento previsto.</p></li>
+        <li><h3>Criação</h3><p>Desenvolvo o conceito: layout, referências, cores e materiais.</p></li>
+        <li><h3>Projeto</h3><p>Entrego imagens 3D, desenhos técnicos, marcenaria e lista de compras.</p></li>
+        <li><h3>Entrega</h3><p>Acompanho a execução até o ambiente ficar pronto para ser vivido.</p></li>
       </ol>
     </div>
   </section>
 
-  <!-- ================= PORTFÓLIO ================= -->
-  <section class="secao" id="portfolio">
+  <!-- ================= DEPOIMENTOS =================
+       Só aparece quando houver depoimentos reais na lista do config.js -->
+  <section class="secao depoimentos" id="depoimentos" hidden>
     <div class="conteudo">
-      <div class="cabeca-secao">
-        <div><div class="rotulo">Portfólio</div><h2 class="titulo">Projetos</h2></div>
-        <!-- Botões de filtro: o data-filtro precisa bater com a "categoria" no config.js -->
-        <div class="filtros" role="group" aria-label="Filtrar projetos">
-          <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
-          <button type="button" data-filtro="sala" aria-pressed="false">Salas</button>
-          <button type="button" data-filtro="quarto" aria-pressed="false">Quartos</button>
-          <button type="button" data-filtro="cozinha" aria-pressed="false">Cozinhas</button>
-          <button type="button" data-filtro="comercial" aria-pressed="false">Comercial</button>
-        </div>
-      </div>
-      <!-- Os cartões são criados pelo JavaScript a partir da lista em js/config.js -->
-      <div class="grade" data-grade></div>
+      <p class="rotulo">Depoimentos</p>
+      <h2 class="titulo">Casos reais, <em>histórias reais</em></h2>
+      <div class="lista-depoimentos" data-depoimentos></div>
+    </div>
+  </section>
+
+  <!-- ================= CHAMADA ================= -->
+  <section class="chamada">
+    <div class="conteudo">
+      <h2>Vamos transformar seu espaço em um lugar que tenha <em>a sua cara?</em></h2>
+      <a class="btn btn-claro" href="#contato">Solicitar orçamento <span class="seta" aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -181,33 +189,35 @@
   <section class="secao contato" id="contato">
     <div class="conteudo">
       <div class="info">
-        <div><div class="rotulo">Contato</div><h2 class="titulo">Vamos conversar sobre o seu projeto</h2></div>
+        <p class="rotulo">Contato</p>
+        <h2 class="titulo">Sua casa precisa ter <em>a sua história</em></h2>
         <p>Conte um pouco sobre o seu espaço. A mensagem é enviada pelo WhatsApp e eu respondo com os próximos passos.</p>
         <ul class="canais">
-          <li><span>E-mail</span><b data-email>contato@seudominio.com.br</b></li>
-          <li><span>Instagram</span><a data-instagram href="#" target="_blank" rel="noopener">@seuperfil</a></li>
+          <li><span>E-mail</span><b data-email>contato@suellenmalta.com.br</b></li>
+          <li><span>Instagram</span><a data-instagram href="#" target="_blank" rel="noopener">@suellenmalta.designer</a></li>
           <li><span>Atendimento</span><b data-cidade>Rio de Janeiro · RJ</b></li>
         </ul>
       </div>
 
-      <!-- Formulário: não envia para servidor. O JavaScript monta uma mensagem e abre o WhatsApp. -->
+      <!-- O formulário não envia para um servidor: o JavaScript monta a mensagem e abre o WhatsApp -->
       <form class="form" id="form-contato" novalidate>
         <div class="duas">
           <div class="campo"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" required autocomplete="name"></div>
           <div class="campo"><label for="f-bairro">Bairro / cidade</label><input id="f-bairro" name="bairro" autocomplete="address-level2"></div>
         </div>
         <div class="campo">
-          <label for="f-tipo">O que você precisa</label>
+          <label for="f-tipo">Serviço de interesse</label>
           <select id="f-tipo" name="tipo">
-            <option>Projeto completo</option>
+            <option>Projeto de interiores</option>
             <option>Consultoria</option>
-            <option>Acompanhamento de obra</option>
+            <option>Marcenaria</option>
+            <option>Produtos</option>
             <option>Ainda não sei</option>
           </select>
         </div>
         <div class="campo"><label for="f-msg">Sobre o espaço</label><textarea id="f-msg" name="mensagem" placeholder="Ex.: apartamento de 2 quartos, quero renovar sala e cozinha"></textarea></div>
         <p class="aviso" data-aviso hidden></p>
-        <button class="btn btn-cheio" type="submit">Enviar pelo WhatsApp <span class="seta" aria-hidden="true">→</span></button>
+        <button class="btn btn-azul" type="submit">Enviar pelo WhatsApp <span class="seta" aria-hidden="true">→</span></button>
       </form>
     </div>
   </section>
@@ -216,14 +226,18 @@
 <!-- ================= RODAPÉ ================= -->
 <footer class="rodape">
   <div class="conteudo">
-    <a class="marca" href="#inicio"><b data-nome>Estúdio Alma</b><span data-assinatura>Design de Interiores</span></a>
-    <span>© <span data-ano>2026</span> <span data-nome>Estúdio Alma</span></span>
-    <a data-instagram href="#" target="_blank" rel="noopener">Instagram</a>
+    <img class="rodape-logo" src="img/marca/logo-claro.png" alt="Suéllen Malta Designer de Interiores" width="842" height="732">
+    <p class="rodape-frase">Interiores que acolhem.<br>Soluções que transformam.</p>
+    <ul class="rodape-links">
+      <li><a data-instagram href="#" target="_blank" rel="noopener">@suellenmalta.designer</a></li>
+      <li><span data-email>contato@suellenmalta.com.br</span></li>
+      <li><span data-cidade>Rio de Janeiro · RJ</span></li>
+    </ul>
+    <p class="creditos">© <span data-ano>2026</span> Suéllen Malta · Designer de Interiores</p>
   </div>
 </footer>
 
-<!-- Scripts no fim do body: o HTML já carregou quando eles rodam -->
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
-</body>
-</html>
+
+</body></html>
