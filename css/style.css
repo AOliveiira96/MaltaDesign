@@ -37,13 +37,15 @@
 
 /* ---------- 2. BASE ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+/* Tamanho base das letras: 112,5% = 18px. Todos os tamanhos em "rem" crescem junto.
+   Para aumentar ou diminuir o site inteiro, mude só este número. */
+html { font-size: 112.5%; scroll-behavior: smooth; scroll-padding-top: 92px; }
 body {
   margin: 0;
   background: var(--off-white);
   color: var(--tinta);
   font-family: var(--f-texto);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.75;
 }
 img { max-width: 100%; display: block; }
@@ -104,7 +106,7 @@ p { margin: 0; }
 
 /* ---------- 4. CAPA E SOBRE ---------- */
 .capa { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 96px); overflow: hidden; }
-.capa .conteudo { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.capa .conteudo { display: grid; grid-template-columns: 1.25fr .9fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .capa-texto { min-width: 0; }
 .pilares { font-size: .72rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--cinza); }
 .capa h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); margin-top: 20px; }
