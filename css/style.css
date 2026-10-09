@@ -39,7 +39,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 /* Tamanho base das letras: 112,5% = 18px. Todos os tamanhos em "rem" crescem junto.
    Para aumentar ou diminuir o site inteiro, mude só este número. */
-html { font-size: 112.5%; scroll-behavior: smooth; scroll-padding-top: 92px; }
+html { font-size: 112.5%; scroll-behavior: smooth; scroll-padding-top: 96px; }
 body {
   margin: 0;
   background: var(--off-white);
@@ -90,8 +90,11 @@ p { margin: 0; }
   border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s;
 }
 .cabecalho.rolou { border-color: var(--linha); box-shadow: 0 6px 20px rgba(38, 50, 58, .06); }
-.cabecalho .conteudo { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 84px; }
-.marca img { height: 70px; width: auto; }
+.cabecalho .conteudo { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 84px; padding-block: 10px; transition: padding .3s; }
+/* Logo grande no topo; diminui um pouco quando a página rola, para não ocupar espaço */
+.marca img { height: 108px; width: auto; transition: height .3s; }
+.cabecalho.rolou .marca img { height: 72px; }
+.cabecalho.rolou .conteudo { padding-block: 6px; }
 .menu { display: flex; align-items: center; gap: 28px; font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
 .menu a { text-decoration: none; }
 .menu a:not(.btn) { position: relative; padding-block: 4px; }
@@ -249,7 +252,7 @@ p { margin: 0; }
 
 .rodape { background: var(--azul-escuro); color: #D9E1E5; font-size: .88rem; }
 .rodape .conteudo { padding-block: 52px 28px; display: grid; grid-template-columns: auto 1fr auto; gap: 24px 48px; align-items: center; }
-.rodape-logo { height: 96px; width: auto; }
+.rodape-logo { height: 140px; width: auto; }
 .rodape-frase { font-family: var(--f-titulo); font-size: 1.3rem; line-height: 1.35; color: var(--off-white); }
 .rodape-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; text-align: right; }
 .rodape a { text-decoration: none; }
@@ -284,7 +287,8 @@ p { margin: 0; }
   .menu a:not(.btn) { padding-block: 14px; border-bottom: 1px solid var(--linha); }
   .menu a:not(.btn)::after { display: none; }
   .menu .btn { margin-top: 16px; }
-  .marca img { height: 52px; }
+  .marca img { height: 80px; }
+  .cabecalho.rolou .marca img { height: 58px; }
   .faixa-frases span + span::before { display: none; }
 }
 @media (max-width: 560px) {
