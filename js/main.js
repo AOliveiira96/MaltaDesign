@@ -7,6 +7,7 @@
    5. Formulário que abre o WhatsApp com a mensagem pronta
    6. Página sempre abre no topo
    7. Foto da Suéllen e depoimentos
+   8. Planta da capa: comparador técnica x humanizada
    ===================================================================== */
 
 // Atalhos para encontrar elementos na página
@@ -186,4 +187,20 @@ if (SITE.depoimentos && SITE.depoimentos.length) {
     lista.append(fig);
   });
   $("#depoimentos").hidden = false;
+}
+
+
+/* ---------- 8. PLANTA DA CAPA: COMPARADOR ----------
+   O controle deslizante (input range, invisível por cima da planta) muda
+   uma variável CSS. O CSS usa essa variável para recortar a planta humanizada. */
+const comparador = $("[data-comparador]");
+if (comparador) {
+  const controle = comparador.querySelector("[data-corte]");
+  const atualizar = () => {
+    const valor = Number(controle.value);                       // 0 a 100
+    comparador.style.setProperty("--corte", valor + "%");       // onde o recorte começa
+    comparador.style.setProperty("--corte-num", valor / 100);   // posição da linha azul
+  };
+  controle.addEventListener("input", atualizar);
+  atualizar();
 }

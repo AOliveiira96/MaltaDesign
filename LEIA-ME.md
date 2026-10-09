@@ -1,4 +1,4 @@
-# Site de Design de Interiores (proposta)
+# Site Suéllen Malta · Designer de Interiores
 
 Site de uma página, feito só com HTML, CSS e JavaScript. Não precisa de servidor nem de mensalidade.
 
@@ -9,10 +9,12 @@ css/style.css   → cores, fontes, layout (as cores ficam nas variáveis no topo
 js/config.js    → ⭐ nome, WhatsApp, e-mail, Instagram e lista de projetos
 js/main.js      → menu do celular, portfólio com filtro, formulário para WhatsApp
 img/projetos/   → fotos do portfólio
+img/marca/      → logo (versão azul e versão clara)
+img/suellen.jpg → foto da seção Sobre (coloque com esse nome)
 ```
 
 ## Personalizar para a cliente
-1. `js/config.js`: troque `nome` ("Estúdio Alma" é só exemplo), `whatsapp`, `email`, `instagram` e `arroba`.
+1. `js/config.js`: confira `whatsapp` (vazio por enquanto), `email`, `instagram` e `arroba`.
 2. Fotos: salve em `img/projetos/` com os nomes listados em `projetos` no `config.js`
    (ou mude os nomes lá). Sem foto, aparece uma amostra de cor no lugar.
 3. Textos de "Sobre", "Serviços" e "Como trabalho": edite direto no `index.html`.
@@ -24,3 +26,6 @@ Abra a pasta no VS Code e clique em **Go Live** (extensão Live Server).
 ## Publicar
 Mesmo processo do site Refúgio: repositório público no GitHub com o `index.html` na raiz,
 depois **Settings → Pages → main / (root)**.
+
+## Depoimentos
+A seção só aparece quando houver depoimentos reais na lista `depoimentos` do `config.js`.

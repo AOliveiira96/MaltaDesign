@@ -12,92 +12,119 @@
   <meta property="og:description" content="Interiores que acolhem, soluções que transformam.">
   <meta property="og:image" content="https://SEU-ENDERECO/img/marca/logo-azul.png">
 
-  <!-- Fontes da marca: DM Serif Display (títulos) e Montserrat (textos) -->
+  <!-- Fontes da marca: DM Serif Display (títulos), Montserrat (textos) e uma caligrafia para a assinatura -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600;700&family=Mrs+Saint+Delafield&family=Architects+Daughter&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ================= CABEÇALHO ================= -->
+<!-- ================= CABEÇALHO: links à esquerda, logo no centro, orçamento à direita ================= -->
 <header class="cabecalho">
   <div class="conteudo">
-    <a class="marca" href="#inicio" aria-label="Suéllen Malta, início">
-      <img src="img/marca/logo-azul.png" alt="Suéllen Malta Designer de Interiores" width="842" height="732">
-    </a>
-
-    <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-    </button>
-
     <nav class="menu" id="menu" aria-label="Menu principal">
       <a href="#sobre">Sobre</a>
       <a href="#projetos">Projetos</a>
       <a href="#servicos">Serviços</a>
       <a href="#processo">Processo</a>
-      <a href="#contato">Contato</a>
-      <a class="btn btn-azul" href="#contato">Solicitar orçamento</a>
+      <a href="#contato" class="so-celular">Contato</a>
     </nav>
+
+    <a class="marca" href="#inicio" aria-label="Suéllen Malta, início">
+      <img src="img/marca/logo-azul.png" alt="Suéllen Malta Designer de Interiores" width="842" height="732">
+    </a>
+
+    <div class="lado-direito">
+      <a class="link-insta" data-instagram href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      </a>
+      <a class="btn btn-azul" href="#contato">Orçamento</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main id="inicio">
 
-  <!-- ================= HOME (CAPA) ================= -->
+  <!-- ================= CAPA: texto + planta interativa (técnica x humanizada) ================= -->
   <section class="capa">
     <div class="conteudo">
       <div class="capa-texto">
-        <p class="pilares">Estética · Funcionalidade · Personalidade · Bem&#8209;estar</p>
-        <h1>Ambientes para viver, sentir e <em>chamar de seu.</em></h1>
-        <p class="lead">Projetos de interiores personalizados para quem busca funcionalidade, estética e acolhimento.</p>
+        <p class="rotulo">Designer de interiores · Rio de Janeiro</p>
+        <h1>Interiores que <em>acolhem.</em><br>Soluções que <em>transformam.</em></h1>
+        <p class="lead">Projetos de interiores personalizados para quem busca funcionalidade, estética e acolhimento. Do primeiro traço da planta ao último detalhe da decoração.</p>
         <div class="acoes">
           <a class="btn btn-azul" href="#projetos">Conheça meu trabalho <span class="seta" aria-hidden="true">→</span></a>
           <a class="btn btn-linha" href="#contato">Solicitar orçamento</a>
         </div>
+        <ul class="pilares" aria-label="Pilares do trabalho">
+          <li>Estética</li><li>Funcionalidade</li><li>Personalidade</li><li>Bem-estar</li>
+        </ul>
       </div>
 
-      <!-- Composição de arcos: o elemento gráfico da marca, feito só com CSS -->
-      <div class="arcos" aria-hidden="true">
-        <span class="arco arco-areia"></span>
-        <span class="arco arco-madeira"></span>
-        <span class="arco arco-oliva"></span>
-        <span class="arco arco-linha"></span>
-        <svg class="folha" viewBox="0 0 60 160" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M30 158C30 110 32 60 44 6"/>
-          <path d="M31 120C18 112 10 98 12 84c12 6 18 20 19 36Z"/>
-          <path d="M33 90c13-7 21-20 20-34-12 5-19 18-20 34Z"/>
-          <path d="M36 58C25 50 20 38 22 26c10 6 14 18 14 32Z"/>
-        </svg>
-      </div>
+      <!-- A planta é desenhada em SVG (código). Duas versões da mesma planta ficam uma sobre a outra;
+           o controle deslizante mostra mais de uma ou da outra. -->
+      <figure class="prancha">
+        <div class="comparador" data-comparador style="--corte: 52%">
+          <svg class="planta planta-tecnica" viewBox="-10 -16 624 472" role="img" aria-label="Planta técnica de um apartamento">
+            <use href="#planta-base"/>
+          </svg>
+          <svg class="planta planta-humanizada" viewBox="-10 -16 624 472" role="img" aria-label="A mesma planta, humanizada com cores e materiais">
+            <use href="#planta-pisos"/>
+            <use href="#planta-moveis-cor"/>
+            <use href="#planta-base"/>
+          </svg>
+          <span class="divisor" aria-hidden="true"><span></span></span>
+          <label class="sr-only" for="corte-planta">Comparar planta técnica e humanizada</label>
+          <input id="corte-planta" type="range" min="0" max="100" value="52" data-corte>
+          <span class="etiqueta etq-esq">Planta técnica</span>
+          <span class="etiqueta etq-dir">Planta humanizada</span>
+        </div>
+        <!-- Carimbo: o quadro de informações que fica no canto de toda prancha de projeto -->
+        <figcaption class="carimbo">
+          <div><span>Projeto</span><b>Apartamento residencial</b></div>
+          <div><span>Desenho</span><b>Planta baixa</b></div>
+          <div><span>Escala</span><b>1:50</b></div>
+          <div class="carimbo-dica">Arraste para ver a planta ganhar vida</div>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- Faixa com as frases da marca -->
-  <div class="faixa-frases" aria-label="Frases da marca">
-    <div class="conteudo">
-      <span>Projetar é transformar espaços em histórias</span>
-      <span>Cada detalhe tem um propósito</span>
-      <span>Sua casa, seu ritmo, seu estilo</span>
-    </div>
-  </div>
-
-  <!-- ================= SOBRE ================= -->
+  <!-- ================= SOBRE (memorial) ================= -->
   <section class="secao sobre" id="sobre">
     <div class="conteudo">
-      <figure class="retrato">
-        <div class="retrato-foto" data-foto-perfil><span>Foto da Suéllen</span></div>
-      </figure>
+      <div class="sobre-foto">
+        <figure class="retrato">
+          <div class="retrato-foto" data-foto-perfil><span>Foto da Suéllen</span></div>
+        </figure>
+        <p class="assinatura" aria-hidden="true">Suéllen Malta</p>
+      </div>
       <div class="sobre-texto">
-        <p class="rotulo">Sobre</p>
-        <h2 class="titulo">Olá, eu sou <em>Suéllen Malta</em></h2>
-        <p class="destaque">Acredito que cada ambiente pode transformar a forma como você vive, se sente e se relaciona com o seu espaço.</p>
-        <p>Meu trabalho começa ouvindo: sua rotina, seus desejos e o que você quer sentir ao chegar em casa. A partir disso, crio projetos que unem beleza, funcionalidade e a sua história.</p>
-        <ul class="valores">
-          <li><b>Acolhimento</b>Ambientes que abraçam a rotina</li>
-          <li><b>Personalidade</b>Projetos com a sua cara</li>
-          <li><b>Confiança</b>Acompanhamento do início à entrega</li>
-        </ul>
+        <p class="rotulo">Sobre · memorial</p>
+        <h2 class="titulo">Sua casa precisa ter <em>a sua história</em></h2>
+        <p class="destaque">Projetar é transformar espaços em histórias. Cada detalhe tem um propósito.</p>
+        <p>Sou a Suéllen Malta, designer de interiores. Meu trabalho começa ouvindo: sua rotina, seus desejos e o que você quer sentir ao chegar em casa. A partir disso, crio projetos que unem beleza, funcionalidade e afeto.</p>
+        <dl class="valores">
+          <div><dt>Acolhimento</dt><dd>Ambientes que abraçam a rotina</dd></div>
+          <div><dt>Personalidade</dt><dd>Projetos com a sua cara</dd></div>
+          <div><dt>Confiança</dt><dd>Presença do início à entrega</dd></div>
+        </dl>
+
+        <!-- Paleta de materiais: amostras como as de um moodboard -->
+        <div class="materiais">
+          <p class="rotulo-pequeno">Paleta de materiais</p>
+          <ul>
+            <li><span class="mat mat-linho"></span>Linho cru</li>
+            <li><span class="mat mat-madeira"></span>Madeira natural</li>
+            <li><span class="mat mat-oliva"></span>Verde oliva</li>
+            <li><span class="mat mat-mostarda"></span>Mostarda</li>
+            <li><span class="mat mat-azul"></span>Azul profundo</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -107,8 +134,8 @@
     <div class="conteudo">
       <div class="cabeca-secao">
         <div>
-          <p class="rotulo">Projetos</p>
-          <h2 class="titulo">Projetos que unem beleza, funcionalidade e <em>histórias reais</em></h2>
+          <p class="rotulo">Portfólio</p>
+          <h2 class="titulo">Projetos que fazem <em>sentido</em></h2>
         </div>
         <!-- data-filtro precisa ser igual à "categoria" de cada projeto no config.js -->
         <div class="filtros" role="group" aria-label="Filtrar projetos por categoria">
@@ -124,52 +151,64 @@
     </div>
   </section>
 
-  <!-- ================= SERVIÇOS ================= -->
-  <section class="secao" id="servicos">
+  <!-- ================= SERVIÇOS: em formato de legenda de planta ================= -->
+  <section class="secao servicos-secao" id="servicos">
     <div class="conteudo">
       <div class="cabeca-secao">
         <div>
-          <p class="rotulo">Serviços</p>
+          <p class="rotulo">Serviços · legenda</p>
           <h2 class="titulo">Soluções criativas para a <em>vida real</em></h2>
         </div>
-        <p class="apoio">Do projeto completo a uma orientação pontual, cada serviço é pensado para a sua necessidade.</p>
+        <p class="apoio">Do projeto completo a uma orientação pontual, cada formato atende uma necessidade.</p>
       </div>
-      <div class="servicos">
-        <article class="servico">
-          <span class="icone ic-azul"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>
-          <h3>Projeto de interiores</h3>
-          <p>Layout, imagens 3D, detalhamento técnico e lista de compras para reformar ou montar do zero.</p>
-        </article>
-        <article class="servico">
-          <span class="icone ic-caramelo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg></span>
-          <h3>Consultoria</h3>
-          <p>Atendimento personalizado, presencial ou on-line, para renovar o espaço aproveitando o que você já tem.</p>
-        </article>
-        <article class="servico">
-          <span class="icone ic-mostarda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4"/><path d="M3 12h18v5H3z"/><path d="M5 17v2M19 17v2"/></svg></span>
-          <h3>Marcenaria</h3>
-          <p>Móveis planejados e painéis desenhados sob medida, com detalhamento para o marceneiro executar.</p>
-        </article>
-        <article class="servico">
-          <span class="icone ic-oliva"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1 13H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
-          <h3>Produtos</h3>
-          <p>Curadoria de mobiliário, iluminação e decoração para completar o ambiente com intenção.</p>
-        </article>
-      </div>
+      <ul class="legenda">
+        <li>
+          <span class="simbolo s-azul">A</span>
+          <div class="leg-texto">
+            <h3>Projeto de interiores</h3>
+            <p>Para reformar ou montar do zero, com tudo definido antes da obra.</p>
+            <p class="inclui">Layout · imagens 3D · detalhamento técnico · lista de compras</p>
+          </div>
+        </li>
+        <li>
+          <span class="simbolo s-caramelo">B</span>
+          <div class="leg-texto">
+            <h3>Consultoria</h3>
+            <p>Atendimento presencial ou on-line para renovar aproveitando o que você já tem.</p>
+            <p class="inclui">Visita ou chamada · sugestões de layout · cores e materiais</p>
+          </div>
+        </li>
+        <li>
+          <span class="simbolo s-mostarda">C</span>
+          <div class="leg-texto">
+            <h3>Marcenaria</h3>
+            <p>Móveis planejados e painéis sob medida, desenhados para o seu espaço.</p>
+            <p class="inclui">Projeto de móveis · detalhamento para o marceneiro</p>
+          </div>
+        </li>
+        <li>
+          <span class="simbolo s-oliva">D</span>
+          <div class="leg-texto">
+            <h3>Produtos</h3>
+            <p>Curadoria de mobiliário, iluminação e decoração para completar o ambiente.</p>
+            <p class="inclui">Indicação de peças · lista com links · composição</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ================= PROCESSO ================= -->
+  <!-- ================= PROCESSO: cronograma com linhas de cota ================= -->
   <section class="secao processo" id="processo">
     <div class="conteudo">
       <div class="cabeca-secao">
         <div>
-          <p class="rotulo">Processo</p>
+          <p class="rotulo">Processo · cronograma</p>
           <h2 class="titulo">Do primeiro contato à <em>entrega</em></h2>
         </div>
         <p class="apoio">Cada etapa é aprovada com você antes de seguir para a próxima.</p>
       </div>
-      <!-- <ol> = lista numerada. A ordem das etapas é real, por isso os números. -->
+      <!-- <ol> = lista numerada: a ordem das etapas é real -->
       <ol class="etapas">
         <li><h3>Conversa</h3><p>Entendo sua rotina, seus desejos, suas necessidades e o investimento previsto.</p></li>
         <li><h3>Criação</h3><p>Desenvolvo o conceito: layout, referências, cores e materiais.</p></li>
@@ -179,8 +218,7 @@
     </div>
   </section>
 
-  <!-- ================= DEPOIMENTOS =================
-       Só aparece quando houver depoimentos reais na lista do config.js -->
+  <!-- ================= DEPOIMENTOS: só aparece com depoimentos reais no config.js ================= -->
   <section class="secao depoimentos" id="depoimentos" hidden>
     <div class="conteudo">
       <p class="rotulo">Depoimentos</p>
@@ -192,27 +230,29 @@
   <!-- ================= CHAMADA ================= -->
   <section class="chamada">
     <div class="conteudo">
+      <p class="rotulo">Agenda aberta</p>
       <h2>Vamos transformar seu espaço em um lugar que tenha <em>a sua cara?</em></h2>
       <a class="btn btn-claro" href="#contato">Solicitar orçamento <span class="seta" aria-hidden="true">→</span></a>
     </div>
   </section>
 
-  <!-- ================= CONTATO ================= -->
+  <!-- ================= CONTATO (briefing) ================= -->
   <section class="secao contato" id="contato">
     <div class="conteudo">
       <div class="info">
-        <p class="rotulo">Contato</p>
-        <h2 class="titulo">Sua casa precisa ter <em>a sua história</em></h2>
-        <p>Conte um pouco sobre o seu espaço. A mensagem é enviada pelo WhatsApp e eu respondo com os próximos passos.</p>
-        <ul class="canais">
-          <li><span>E-mail</span><b data-email>contato@suellenmalta.com.br</b></li>
-          <li><span>Instagram</span><a data-instagram href="#" target="_blank" rel="noopener">@suellenmalta.designer</a></li>
-          <li><span>Atendimento</span><b data-cidade>Rio de Janeiro · RJ</b></li>
-        </ul>
+        <p class="rotulo">Contato · briefing</p>
+        <h2 class="titulo">Conte sobre o <em>seu espaço</em></h2>
+        <p>Preencha o briefing ao lado. A mensagem é enviada pelo WhatsApp e eu respondo com os próximos passos.</p>
+        <dl class="ficha">
+          <div><dt>E-mail</dt><dd data-email>contato@suellenmalta.com.br</dd></div>
+          <div><dt>Instagram</dt><dd><a data-instagram href="#" target="_blank" rel="noopener">@suellenmalta.designer</a></dd></div>
+          <div><dt>Atendimento</dt><dd data-cidade>Rio de Janeiro · RJ</dd></div>
+        </dl>
       </div>
 
       <!-- O formulário não envia para um servidor: o JavaScript monta a mensagem e abre o WhatsApp -->
       <form class="form" id="form-contato" novalidate>
+        <p class="form-titulo">Briefing inicial</p>
         <div class="duas">
           <div class="campo"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" required autocomplete="name"></div>
           <div class="campo"><label for="f-bairro">Bairro / cidade</label><input id="f-bairro" name="bairro" autocomplete="address-level2"></div>
@@ -248,6 +288,163 @@
     <p class="creditos">© <span data-ano>2026</span> Suéllen Malta · Designer de Interiores</p>
   </div>
 </footer>
+
+<!-- ================= DESENHO DA PLANTA (reaproveitado pelas duas versões) =================
+     Fica escondido; as plantas da capa usam estas peças com <use href="#...">.
+     Medidas: 1 unidade = 1,4 cm na escala 1:50 do desenho ilustrativo. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Filtros que deixam o desenho com cara de feito à mão:
+         "traco-mao" entorta levemente as linhas; "aquarela" deixa as cores irregulares -->
+    <filter id="traco-mao" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="2.6"/>
+    </filter>
+    <filter id="aquarela" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="2" result="ruido"/>
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="6" result="borrado"/>
+      <feComponentTransfer in="borrado"><feFuncA type="linear" slope=".82"/></feComponentTransfer>
+    </filter>
+
+    <!-- Texturas de piso da planta humanizada -->
+    <pattern id="piso-madeira" width="600" height="14" patternUnits="userSpaceOnUse">
+      <rect width="600" height="14" fill="#D9B48F"/>
+      <path d="M0 13.5H600" stroke="#C49A72" stroke-width="1"/>
+      <path d="M60 0V14M210 0V14M330 0V14M470 0V14" stroke="#C49A72" stroke-width=".8"/>
+    </pattern>
+    <pattern id="piso-ceramica" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#F2EEE8"/>
+      <path d="M0 .5H16M.5 0V16" stroke="#D8CFC3" stroke-width="1"/>
+    </pattern>
+    <pattern id="piso-deck" width="12" height="440" patternUnits="userSpaceOnUse">
+      <rect width="12" height="440" fill="#B98258"/>
+      <path d="M11.5 0V440" stroke="#9C6A45" stroke-width="1"/>
+    </pattern>
+
+    <g id="planta-pisos" filter="url(#aquarela)">
+      <rect x="24" y="24" width="332" height="232" fill="url(#piso-madeira)"/>
+      <rect x="24" y="256" width="212" height="160" fill="url(#piso-ceramica)"/>
+      <rect x="244" y="264" width="112" height="152" fill="url(#piso-ceramica)"/>
+      <rect x="364" y="24" width="212" height="232" fill="url(#piso-madeira)"/>
+      <rect x="364" y="264" width="212" height="152" fill="url(#piso-deck)"/>
+    </g>
+
+    <g id="planta-moveis-cor" filter="url(#aquarela)">
+      <!-- sala -->
+      <rect x="66" y="88" width="178" height="96" rx="4" fill="#E7DCCB"/>
+      <rect x="64" y="184" width="186" height="48" rx="10" fill="#386276"/>
+      <rect x="72" y="190" width="56" height="28" rx="6" fill="#4A7689"/>
+      <rect x="130" y="190" width="56" height="28" rx="6" fill="#4A7689"/>
+      <rect x="188" y="190" width="56" height="28" rx="6" fill="#4A7689"/>
+      <circle cx="155" cy="136" r="20" fill="#A96C46"/>
+      <rect x="92" y="30" width="134" height="14" fill="#8A5A3B"/>
+      <circle cx="290" cy="108" r="30" fill="#C08A60"/>
+      <circle cx="336" cy="46" r="14" fill="#7A7E55"/><circle cx="330" cy="40" r="7" fill="#959A6C"/>
+      <circle cx="46" cy="232" r="12" fill="#7A7E55"/>
+      <!-- cozinha -->
+      <rect x="30" y="384" width="200" height="26" fill="#6B7176"/>
+      <rect x="30" y="270" width="26" height="114" fill="#6B7176"/>
+      <rect x="96" y="300" width="112" height="34" rx="3" fill="#D9A64A"/>
+      <!-- suíte -->
+      <rect x="430" y="62" width="112" height="132" rx="4" fill="#F7F3EF"/>
+      <rect x="430" y="100" width="112" height="94" rx="3" fill="#D8C5AC"/>
+      <rect x="430" y="150" width="112" height="44" rx="3" fill="#7A7E55"/>
+      <rect x="404" y="66" width="22" height="22" fill="#A96C46"/><rect x="546" y="66" width="22" height="22" fill="#A96C46"/>
+      <circle cx="560" cy="236" r="11" fill="#7A7E55"/>
+      <!-- banho -->
+      <rect x="302" y="364" width="50" height="48" fill="#BFD3DA"/>
+      <!-- varanda -->
+      <circle cx="470" cy="340" r="24" fill="#E7DCCB"/>
+      <circle cx="390" cy="398" r="12" fill="#7A7E55"/><circle cx="556" cy="398" r="12" fill="#7A7E55"/>
+      <circle cx="556" cy="286" r="9" fill="#959A6C"/>
+    </g>
+
+    <!-- Paredes, portas, janelas, contornos dos móveis, textos e cotas (igual nas duas versões) -->
+    <g id="planta-base" filter="url(#traco-mao)" stroke-linecap="round" stroke-linejoin="round">
+      <g class="contorno" fill="none" stroke="#2B3135" stroke-width=".8">
+        <!-- sala: tapete, sofá com almofadas, mesa de centro, rack, mesa de jantar e cadeiras -->
+        <rect x="66" y="88" width="178" height="96" rx="4" stroke-dasharray="3 3"/>
+        <rect x="64" y="184" width="186" height="48" rx="10"/>
+        <rect x="72" y="190" width="56" height="28" rx="6"/><rect x="130" y="190" width="56" height="28" rx="6"/><rect x="188" y="190" width="56" height="28" rx="6"/>
+        <circle cx="155" cy="136" r="20"/>
+        <rect x="92" y="30" width="134" height="14"/>
+        <circle cx="290" cy="108" r="30"/>
+        <circle cx="290" cy="64" r="9"/><circle cx="290" cy="152" r="9"/><circle cx="246" cy="108" r="9"/><circle cx="334" cy="108" r="9"/>
+        <!-- cozinha: bancadas em L, ilha, banquetas, cooktop e cuba -->
+        <rect x="30" y="384" width="200" height="26"/><rect x="30" y="270" width="26" height="114"/>
+        <rect x="96" y="300" width="112" height="34" rx="3"/>
+        <circle cx="116" cy="350" r="8"/><circle cx="152" cy="350" r="8"/><circle cx="188" cy="350" r="8"/>
+        <circle cx="80" cy="397" r="5"/><circle cx="96" cy="397" r="5"/><rect x="150" y="388" width="34" height="18" rx="4"/>
+        <!-- suíte: cama, travesseiros, criados-mudos, armário -->
+        <rect x="430" y="62" width="112" height="132" rx="4"/>
+        <rect x="440" y="70" width="42" height="22" rx="6"/><rect x="490" y="70" width="42" height="22" rx="6"/>
+        <path d="M430 100H542"/>
+        <rect x="404" y="66" width="22" height="22"/><rect x="546" y="66" width="22" height="22"/>
+        <rect x="370" y="214" width="150" height="26"/><path d="M445 214V240"/>
+        <!-- banho: bancada, cuba, vaso, box -->
+        <rect x="250" y="270" width="64" height="22"/><ellipse cx="282" cy="281" rx="12" ry="7"/>
+        <ellipse cx="266" cy="396" rx="11" ry="15"/><rect x="255" y="404" width="22" height="8"/>
+        <rect x="302" y="364" width="50" height="48"/><path d="M302 364L352 412M352 364L302 412" stroke-width=".6"/>
+        <!-- varanda: mesa redonda e cadeiras -->
+        <circle cx="470" cy="340" r="24"/>
+        <circle cx="470" cy="304" r="8"/><circle cx="470" cy="376" r="8"/><circle cx="434" cy="340" r="8"/><circle cx="506" cy="340" r="8"/>
+      </g>
+
+      <!-- portas (folha + arco tracejado) -->
+      <g fill="none" stroke="#2B3135" stroke-width=".7">
+        <path d="M360 200V240M360 200A40 40 0 0 0 320 240" stroke-dasharray="3 3"/>
+        <path d="M270 260H306M306 260A36 36 0 0 1 270 296" stroke-dasharray="3 3"/>
+      </g>
+
+      <!-- paredes (contorno grosso) -->
+      <!-- paredes em linha dupla fina: um traço escuro largo e, por cima, um traço claro mais estreito -->
+      <g fill="none" stroke-linecap="square">
+        <g stroke="#2B3135" stroke-width="7.6">
+          <path d="M20 20H580V420H20Z"/><path d="M360 20V200M360 240V420"/>
+          <path d="M240 260H270M306 260H440M520 260H580"/><path d="M240 260V420"/>
+        </g>
+        <g stroke="#FFFDFB" stroke-width="5.8">
+          <path d="M20 20H580V420H20Z"/><path d="M360 20V200M360 240V420"/>
+          <path d="M240 260H270M306 260H440M520 260H580"/><path d="M240 260V420"/>
+        </g>
+        <!-- traço extra, levemente deslocado, como um esboço repassado -->
+        <g stroke="#2B3135" stroke-width=".5" opacity=".45">
+          <path d="M14 22H586M22 14V426M578 14V426M14 418H586"/>
+        </g>
+      </g>
+      <!-- janelas e porta de correr de vidro -->
+      <g fill="#FFFDFB" stroke="#2B3135" stroke-width=".7">
+        <rect x="70" y="16" width="170" height="8"/><path d="M70 20H240"/>
+        <rect x="420" y="16" width="120" height="8"/><path d="M420 20H540"/>
+        <rect x="380" y="416" width="180" height="8"/><path d="M380 420H560"/>
+        <rect x="440" y="256" width="80" height="8"/><path d="M440 260H480M480 258H520"/>
+      </g>
+
+      <!-- nomes dos ambientes e áreas -->
+      <g class="nomes" font-family="'Architects Daughter', 'Comic Sans MS', cursive" font-size="11" letter-spacing=".8" fill="#2B3135">
+        <text x="40" y="70">ESTAR / JANTAR</text><text x="40" y="83" font-size="10" letter-spacing=".3">A = 24,5 m²</text>
+        <text x="72" y="282">COZINHA</text><text x="72" y="294" font-size="10" letter-spacing=".3">A = 9,8 m²</text>
+        <text x="252" y="330">BANHO</text><text x="252" y="342" font-size="10" letter-spacing=".3">A = 3,6 m²</text>
+        <text x="380" y="132">SUÍTE</text><text x="380" y="144" font-size="10" letter-spacing=".3">A = 15,2 m²</text>
+        <text x="380" y="290">VARANDA</text><text x="380" y="302" font-size="10" letter-spacing=".3">A = 7,1 m²</text>
+      </g>
+
+      <!-- cotas (linhas de medida) -->
+      <g stroke="#A96C46" stroke-width=".7" fill="none">
+        <path d="M20 6H580M20 1V11M580 1V11"/>
+        <path d="M594 20V420M589 20H599M589 420H599"/>
+      </g>
+      <g font-family="'Architects Daughter', 'Comic Sans MS', cursive" font-size="12" fill="#A96C46">
+        <text x="282" y="-2">8,40</text>
+        <text x="598" y="226" transform="rotate(90 598 226)">6,20</text>
+      </g>
+      <!-- seta do norte -->
+      <g transform="translate(40 438)" fill="#2B3135" font-family="'Architects Daughter', cursive" font-size="9">
+        <path d="M0 -14L5 0H-5Z"/><text x="-3" y="-17">N</text>
+      </g>
+    </g>
+  </defs>
+</svg>
 
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
