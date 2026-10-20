@@ -11,9 +11,8 @@ window.SITE = {
 
   /* WhatsApp com 55 + DDD + número, só números. Ex.: "5521999998888".
      O formulário de contato monta a mensagem e abre o WhatsApp com ela. */
-  whatsapp: "5521000000000",   // NÚMERO FICTÍCIO: troque pelo WhatsApp da Suéllen antes de divulgar
-  email: "",                    // preencha quando o e-mail do domínio estiver criado; vazio = não aparece
-  registro: "ABD 39386",        // registro na Associação Brasileira de Designers de Interiores
+  whatsapp: "",
+  email: "contato@suellenmalta.com.br",
   instagram: "https://www.instagram.com/suellenmalta.designer/",
   arroba: "@suellenmalta.designer",
   cidade: "Rio de Janeiro · RJ",
