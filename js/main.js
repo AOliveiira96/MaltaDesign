@@ -8,6 +8,7 @@
    6. Página sempre abre no topo
    7. Foto da Suéllen e depoimentos
    8. Planta da capa: comparador técnica x humanizada
+   9. Visualizador de fotos dos projetos
    ===================================================================== */
 
 // Atalhos para encontrar elementos na página
@@ -17,7 +18,26 @@ const SITE = window.SITE;
 
 
 /* ---------- 1. DADOS DO CONFIG ---------- */
-$$("[data-email]").forEach(el => el.textContent = SITE.email);
+// E-mail: só aparece quando estiver preenchido no config.js
+$$("[data-email]").forEach(el => {
+  if (SITE.email) el.textContent = SITE.email;
+  else (el.closest("[data-linha-email]") || el).hidden = true;
+});
+$$("[data-registro]").forEach(el => el.textContent = SITE.registro);
+
+// Botão flutuante de WhatsApp com mensagem pronta
+if (SITE.whatsapp) {
+  const numeroWhats = SITE.whatsapp.replace(/\D/g, "");
+  const msgWhats = encodeURIComponent("Olá, Suéllen! Vi seu site e gostaria de conversar sobre um projeto.");
+  const botaoWhats = document.createElement("a");
+  botaoWhats.className = "whatsapp-flutuante";
+  botaoWhats.href = `https://wa.me/${numeroWhats}?text=${msgWhats}`;
+  botaoWhats.target = "_blank";
+  botaoWhats.rel = "noopener";
+  botaoWhats.setAttribute("aria-label", "Conversar no WhatsApp");
+  botaoWhats.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>`;
+  document.body.append(botaoWhats);
+}
 $$("[data-cidade]").forEach(el => el.textContent = SITE.cidade);
 $$("[data-instagram]").forEach(el => {
   el.href = SITE.instagram;
@@ -61,12 +81,29 @@ function criarCartao(projeto) {
   fig.dataset.categoria = projeto.categoria;
   fig.innerHTML = `
     <div class="foto tom-${projeto.tom}">
-      <img src="${projeto.foto}" alt="${projeto.titulo}" loading="lazy">
+      <img src="${projeto.foto}" alt="${projeto.titulo}: projeto de interiores de Suéllen Malta" loading="lazy">
     </div>
     <figcaption>
       <h3>${projeto.titulo}</h3>
       <small>${projeto.tipo}</small>
     </figcaption>`;
+
+  // Projeto com várias imagens: mostra a quantidade e abre o visualizador ao clicar
+  if (projeto.fotos && projeto.fotos.length) {
+    const temVideo = projeto.fotos.some(f => f.video);
+    const qtdImagens = projeto.fotos.filter(f => !f.video).length;
+    const selo = document.createElement("span");
+    selo.className = "qtd-fotos";
+    selo.textContent = qtdImagens + (qtdImagens === 1 ? " imagem" : " imagens") + (temVideo ? " + vídeo" : "");
+    fig.append(selo);
+    fig.classList.add("clicavel");
+    fig.tabIndex = 0;
+    fig.setAttribute("role", "button");
+    fig.setAttribute("aria-label", `Ver imagens do projeto ${projeto.titulo}`);
+    const abrir = () => abrirVisualizador(projeto.fotos, 0);
+    fig.addEventListener("click", abrir);
+    fig.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); abrir(); } });
+  }
 
   // Se a foto não existir, troca por uma amostra de cor da paleta
   fig.querySelector("img").addEventListener("error", (evento) => {
@@ -204,3 +241,77 @@ if (comparador) {
   controle.addEventListener("input", atualizar);
   atualizar();
 }
+
+
+/* ---------- 9. VISUALIZADOR DE FOTOS DOS PROJETOS ----------
+   Uma janela escura por cima da página, com setas, legenda e contador.
+   Funciona com o teclado (setas e Esc) e deslizando o dedo no celular. */
+const vis = document.createElement("div");
+vis.className = "visualizador";
+vis.hidden = true;
+vis.setAttribute("role", "dialog");
+vis.setAttribute("aria-modal", "true");
+vis.innerHTML = `
+  <button class="vis-fechar" aria-label="Fechar">×</button>
+  <button class="vis-seta vis-ant" aria-label="Imagem anterior">‹</button>
+  <figure><img alt=""><video controls muted playsinline preload="none" hidden></video><figcaption><span class="vis-legenda"></span><span class="vis-contador"></span></figcaption></figure>
+  <button class="vis-seta vis-prox" aria-label="Próxima imagem">›</button>`;
+document.body.append(vis);
+
+let listaAtual = [], posicao = 0, ultimoFoco = null;
+const visImg = vis.querySelector("img");
+const visVideo = vis.querySelector("video");
+
+function mostrarFoto(i) {
+  posicao = (i + listaAtual.length) % listaAtual.length;   // volta ao início depois da última
+  const foto = listaAtual[posicao];
+  visVideo.pause();
+  if (foto.video) {
+    // Item de vídeo: esconde a imagem, mostra o player e começa a tocar sem som
+    visImg.hidden = true;
+    visVideo.hidden = false;
+    visVideo.poster = foto.capa || "";
+    visVideo.src = foto.video;
+    visVideo.play().catch(() => {});   // se o navegador bloquear, a pessoa aperta o play
+  } else {
+    visVideo.hidden = true;
+    visVideo.removeAttribute("src");
+    visImg.hidden = false;
+    visImg.src = foto.arquivo;
+    visImg.alt = foto.legenda;
+  }
+  vis.querySelector(".vis-legenda").textContent = foto.legenda;
+  vis.querySelector(".vis-contador").textContent = `${posicao + 1} / ${listaAtual.length}`;
+}
+function abrirVisualizador(fotos, inicio) {
+  listaAtual = fotos;
+  ultimoFoco = document.activeElement;
+  mostrarFoto(inicio);
+  vis.hidden = false;
+  document.body.style.overflow = "hidden";
+  vis.querySelector(".vis-fechar").focus();
+}
+function fecharVisualizador() {
+  visVideo.pause();
+  vis.hidden = true;
+  document.body.style.overflow = "";
+  if (ultimoFoco) ultimoFoco.focus();
+}
+vis.querySelector(".vis-fechar").addEventListener("click", fecharVisualizador);
+vis.querySelector(".vis-ant").addEventListener("click", () => mostrarFoto(posicao - 1));
+vis.querySelector(".vis-prox").addEventListener("click", () => mostrarFoto(posicao + 1));
+vis.addEventListener("click", e => { if (e.target === vis) fecharVisualizador(); });
+document.addEventListener("keydown", e => {
+  if (vis.hidden) return;
+  if (e.key === "Escape") fecharVisualizador();
+  if (e.key === "ArrowLeft") mostrarFoto(posicao - 1);
+  if (e.key === "ArrowRight") mostrarFoto(posicao + 1);
+});
+let inicioToque = null;
+vis.addEventListener("touchstart", e => { inicioToque = e.touches[0].clientX; }, { passive: true });
+vis.addEventListener("touchend", e => {
+  if (inicioToque === null) return;
+  const distancia = e.changedTouches[0].clientX - inicioToque;
+  if (Math.abs(distancia) > 50) mostrarFoto(posicao + (distancia < 0 ? 1 : -1));
+  inicioToque = null;
+});
