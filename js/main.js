@@ -18,7 +18,26 @@ const SITE = window.SITE;
 
 
 /* ---------- 1. DADOS DO CONFIG ---------- */
-$$("[data-email]").forEach(el => el.textContent = SITE.email);
+// E-mail: só aparece quando estiver preenchido no config.js
+$$("[data-email]").forEach(el => {
+  if (SITE.email) el.textContent = SITE.email;
+  else (el.closest("[data-linha-email]") || el).hidden = true;
+});
+$$("[data-registro]").forEach(el => el.textContent = SITE.registro);
+
+// Botão flutuante de WhatsApp com mensagem pronta
+if (SITE.whatsapp) {
+  const numeroWhats = SITE.whatsapp.replace(/\D/g, "");
+  const msgWhats = encodeURIComponent("Olá, Suéllen! Vi seu site e gostaria de conversar sobre um projeto.");
+  const botaoWhats = document.createElement("a");
+  botaoWhats.className = "whatsapp-flutuante";
+  botaoWhats.href = `https://wa.me/${numeroWhats}?text=${msgWhats}`;
+  botaoWhats.target = "_blank";
+  botaoWhats.rel = "noopener";
+  botaoWhats.setAttribute("aria-label", "Conversar no WhatsApp");
+  botaoWhats.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>`;
+  document.body.append(botaoWhats);
+}
 $$("[data-cidade]").forEach(el => el.textContent = SITE.cidade);
 $$("[data-instagram]").forEach(el => {
   el.href = SITE.instagram;
